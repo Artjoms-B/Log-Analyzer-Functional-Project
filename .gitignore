@@ -1,0 +1,14 @@
+# Cabal build artifacts
+dist-newstyle/
+
+# Editor settings
+.vscode/
+
+# Logs and generated outputs
+*.json
+*.log
+
+# Large input files
+log*.txt
+
+

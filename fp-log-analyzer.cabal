@@ -1,0 +1,61 @@
+cabal-version:      2.4
+name:               fp-log-analyzer
+version:            0.1.0.0
+
+library
+  exposed-modules:     LogAnalyzer, Streaming
+  hs-source-dirs:      .
+  build-depends:       base >=4.14 && <5
+                     , aeson
+                     , bytestring
+                     , containers
+                     , text
+                     , conduit
+                     , conduit-extra
+  default-language:    Haskell2010
+
+
+executable analyzer
+  main-is:             Main.hs
+  other-modules:       LogAnalyzer, Streaming
+  hs-source-dirs:      .
+  build-depends:       base
+                     , fp-log-analyzer
+                     , aeson
+                     , aeson-pretty
+                     , bytestring
+                     , containers
+                     , text
+                     , conduit
+                     , conduit-extra
+                     , optparse-applicative
+  default-language:    Haskell2010
+
+test-suite analyzer-tests
+  type: exitcode-stdio-1.0
+  main-is: LogAnalyzerSpec.hs
+  other-modules: LogAnalyzer
+  hs-source-dirs: .
+  build-depends:
+      base
+    , fp-log-analyzer
+    , QuickCheck
+    , aeson
+    , containers
+  default-language: Haskell2010
+
+test-suite streaming-tests
+  type: exitcode-stdio-1.0
+  main-is: StreamingSpec.hs
+  other-modules: Streaming
+  hs-source-dirs: .
+  build-depends:
+      base
+    , fp-log-analyzer
+    , QuickCheck
+    , text
+    , containers
+    , aeson
+    , conduit
+    , conduit-extra
+  default-language: Haskell2010
